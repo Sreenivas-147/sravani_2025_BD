@@ -47,14 +47,13 @@
 
     /* Glassmorphic Letter Box */
     .letter {
-     background:
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('IMG_20250115_151230.jpg');  /* relative path to image in your repo */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  
-
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('IMG_20250115_151230.jpg');  /* relative path to image in your repo */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       border-radius: 20px;
@@ -74,19 +73,37 @@
       color: var(--text-color-dark);
     }
 
-    /* Heading */
+    /* Updated Heading Styles for h1 */
     h1 {
       font-family: var(--font-cursive);
+      font-size: 2.5rem;
       text-align: center;
-      font-size: 3rem;
-      margin-bottom: 1.8rem;
-      color: var(--accent-color-alt);
+      background: linear-gradient(90deg, #ff416c, #ff4b2b, #1f4037, #99f2c8);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 8s ease infinite;
+      letter-spacing: 0.15em;
+      font-weight: 900;
       user-select: none;
+      text-shadow:
+        0 0 8px rgba(255, 65, 108, 0.7),
+        0 0 15px rgba(255, 75, 43, 0.5);
       transition: color 0.5s ease;
+      margin-bottom: 2rem;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
     }
 
+    /* Dark mode override for h1 */
     body.dark h1 {
-      color: var(--accent-color);
+      background: linear-gradient(90deg, #0ab7da, #d63384, #6a11cb, #2575fc);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShiftDark 8s ease infinite;
+      text-shadow:
+        0 0 10px rgba(10, 183, 218, 0.9),
+        0 0 20px rgba(214, 51, 132, 0.7);
     }
 
     /* Paragraph styling */
@@ -103,6 +120,31 @@
       100% {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    /* Gradient animation keyframes */
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes gradientShiftDark {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
       }
     }
 
@@ -134,7 +176,8 @@
         font-size: 1.1em;
       }
       h1 {
-        font-size: 2.4rem;
+        font-size: 2.8rem;
+        letter-spacing: 0.1em;
       }
     }
   </style>
