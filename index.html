@@ -1,84 +1,197 @@
 <!DOCTYPE html>
-<html lang="te">
+<html lang="te" >
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Puttina Roju Prema Lekha</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>పుట్టినరోజు ప్రేమ లేఖ - శ్రీనివాస్ నుండి శ్రావణి కి</title>
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Charm&family=Noto+Serif+Telugu&display=swap" rel="stylesheet" />
+  
   <style>
+    /* CSS Variables for Light and Dark mode */
+    :root {
+      --bg-gradient-light: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      --bg-gradient-dark: linear-gradient(to right, #232526, #1c1c1c);
+      --text-color-light: #3a3a3a;
+      --text-color-dark: #ddd;
+      --accent-color: #0ab7da;
+      --accent-color-alt: #d63384;
+      --letter-bg-light: rgba(255 255 255 / 0.85);
+      --letter-bg-dark: rgba(20 20 20 / 0.85);
+      --shadow-light: rgba(0 0 0 / 0.1);
+      --shadow-dark: rgba(255 255 255 / 0.1);
+      --font-primary: 'Noto Serif Telugu', serif;
+      --font-cursive: 'Charm', cursive;
+    }
+
+    /* Base styles */
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Noto Serif Telugu', serif;
-      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      min-height: 100vh;
+      font-family: var(--font-primary);
+      background: var(--bg-gradient-light);
+      color: var(--text-color-light);
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      color: #3a3a3a;
+      padding: 20px;
+      transition: background 0.5s ease, color 0.5s ease;
+      flex-direction: column;
+    }
+    
+    body.dark {
+      background: var(--bg-gradient-dark);
+      color: var(--text-color-dark);
     }
 
-.letter {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),  /* dark overlay with 40% opacity */
-    url("IMG_20250115_151230.jpg");
+    /* Glassmorphic Letter Box */
+    .letter {
+     background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('IMG_20250115_151230.jpg');  /* relative path to image in your repo */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  
 
-  padding: 2.5rem 3rem;
-  border-radius: 20px;
-  max-width: 700px;
-  box-shadow: 0 10px 30px rgb(255, 253, 253);
-  line-height: 2;
-  font-size: 1.3em;
-  animation: fadeIn 2s ease;
-
-  color: white;  /* Added this line */
-}
-
-
-    h1 {
-      font-family: 'Charm', cursive;
-      text-align: center;
-      font-size: 2.8rem;
-      margin-bottom: 1.5rem;
-      color: #0ab7da;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 20px;
+      max-width: 700px;
+      padding: 3rem 3.5rem;
+      box-shadow: 0 10px 30px var(--shadow-light);
+      line-height: 1.8;
+      font-size: 1.25em;
+      animation: fadeInUp 1.2s ease forwards;
+      color: inherit;
+      user-select: text;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    body.dark .letter {
+      background: var(--letter-bg-dark);
+      box-shadow: 0 10px 30px var(--shadow-dark);
+      color: var(--text-color-dark);
+    }
+
+    /* Heading */
+    h1 {
+      font-family: var(--font-cursive);
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 1.8rem;
+      color: var(--accent-color-alt);
+      user-select: none;
+      transition: color 0.5s ease;
+    }
+
+    body.dark h1 {
+      color: var(--accent-color);
+    }
+
+    /* Paragraph styling */
+    p {
+      margin-bottom: 1.2em;
+    }
+
+    /* FadeIn animation */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Dark Mode Toggle Button */
+    .toggle-btn {
+      cursor: pointer;
+      background: var(--accent-color-alt);
+      border: none;
+      border-radius: 50px;
+      padding: 0.6rem 1.5rem;
+      font-family: var(--font-cursive);
+      font-size: 1.1rem;
+      color: white;
+      box-shadow: 0 4px 10px rgba(214, 51, 132, 0.6);
+      transition: background 0.3s ease;
+      margin-top: 30px;
+      user-select: none;
+    }
+
+    .toggle-btn:hover {
+      background: var(--accent-color);
+      box-shadow: 0 6px 15px rgba(10, 183, 218, 0.7);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .letter {
+        padding: 2rem 2rem;
+        font-size: 1.1em;
+      }
+      h1 {
+        font-size: 2.4rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="letter">
+  <div class="letter" role="main" aria-label="Birthday love letter">
+    <h1>పుట్టినరోజు ప్రేమ లేఖ</h1>
     <p>
-     నా ప్రియమైన శ్రావణి గారికి,<br><br>
-
-      ఈ రోజు నీ పుట్టినరోజు. నీకు ఇలాంటి ఒక చిన్న ప్రేమ లేఖ రాయాలనిపించింది.  
+      నా ప్రియమైన శ్రావణి గారికి,<br><br>
+      ఈ రోజు నీ పుట్టినరోజు. నీకు ఇలాంటి ఒక చిన్న ప్రేమ లేఖ రాయాలనిపించింది.<br>
       నా హృదయం నిండా ఉన్న ప్రేమను మాటల్లో చెప్పడం కష్టం, కాని ప్రయత్నిస్తాను.<br><br>
 
-      నువ్వు నా జీవితానికి వెలుగులు నింపిన వెలుగు, నా బదులు నేను ఎప్పుడూ క్షమించని దైవపు వరం.  
+      నువ్వు నా జీవితానికి వెలుగులు నింపిన వెలుగు, నా బదులు నేను ఎప్పుడూ క్షమించని దైవపు వరం.<br>
       నీ నవ్వు చూసినప్పుడు నా కళ్లలో కన్నీళ్లు దాగలేవి కాదు, అది ఆనంద కన్నీళ్లు – హృదయం ఎంత ప్రేమతో నిండిపోయిందో సూచించే నీటి ముక్కలు.<br><br>
 
-      నీతో గడిపిన ప్రతి క్షణం నాకు ఒక అందమైన స్మృతి, ఓ మధుర గీత. నీ ప్రేమతో నా ప్రతి బాధ మృదు గా మారిపోయింది.  
+      నీతో గడిపిన ప్రతి క్షణం నాకు ఒక అందమైన స్మృతి, ఓ మధుర గీత.<br>
+      నీ ప్రేమతో నా ప్రతి బాధ మృదు గా మారిపోయింది.<br>
       ఈ ప్రపంచంలో నిన్ను మించిన అద్భుతమైన వ్యక్తి లేను అని నమ్మాను.<br><br>
 
       నీవు నా జీవితంలోకి వచ్చి నాకు ఒక కొత్త ప్రపంచాన్ని చూపించావు, ఆ ప్రపంచం ప్రేమతో, సహనంతో, హృదయపూర్వక దయతో నిండిపోయింది.<br><br>
 
-      ఈ పుట్టినరోజు నాడు నీకు శాశ్వత ఆనందం, ఆరోగ్యం, ప్రేమ, ఆశీర్వాదాలు వరిస్తాయి.  
-      నీ చిరునవ్వు ఎప్పటికీ నా హృదయాన్ని వెలిగిస్తూ ఉండాలని,  
-      నీ కలలు నెరవేరాలని,  
-      నీ జీవితం సుఖసంతోషాలతో నిండాలని ఆశిస్తున్నాను.<br>
+      ఈ పుట్టినరోజు నాడు నీకు శాశ్వత ఆనందం, ఆరోగ్యం, ప్రేమ, ఆశీర్వాదాలు వరిస్తాయి.<br>
+      నీ చిరునవ్వు ఎప్పటికీ నా హృదయాన్ని వెలిగిస్తూ ఉండాలని,<br>
+      నీ కలలు నెరవేరాలని,<br>
+      నీ జీవితం సుఖసంతోషాలతో నిండాలని ఆశిస్తున్నాను.<br><br>
       
-      నీవు నాకు అర్థం చేసుకోలేని విధంగా ఎంతో ముఖ్యం, ప్రాణం కన్నా దగ్గరగా ఉన్నావు.  
+      నీవు నాకు అర్థం చేసుకోలేని విధంగా ఎంతో ముఖ్యం, ప్రాణం కన్నా దగ్గరగా ఉన్నావు.<br>
       ఈ ప్రేమ లేఖ నీ హృదయాన్ని తాకి, నీ కన్నీళ్లు సంతోషంతో తడవాలని కోరుకుంటున్నాను.<br><br>
 
       ఎప్పటికీ నీ ప్రేమతో,<br>
       నీ శ్రీనివాస్ ❤️
     </p>
   </div>
+
+  <button class="toggle-btn" aria-pressed="false" aria-label="Toggle dark mode">🌙 Dark Mode</button>
+
+  <script>
+    const toggleBtn = document.querySelector('.toggle-btn');
+    const body = document.body;
+
+    function updateToggleBtn() {
+      if(body.classList.contains('dark')){
+        toggleBtn.textContent = '☀️ Light Mode';
+        toggleBtn.setAttribute('aria-pressed', 'true');
+      } else {
+        toggleBtn.textContent = '🌙 Dark Mode';
+        toggleBtn.setAttribute('aria-pressed', 'false');
+      }
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      updateToggleBtn();
+    });
+
+    // Initialize button label on page load
+    updateToggleBtn();
+  </script>
 </body>
 </html>
