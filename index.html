@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>పుట్టినరోజు శుభాకాంక్షలు శ్రావణి!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      max-width: 600px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .typewriter {
+      color: #ff4d6d;
+      font-weight: bold;
+      font-size: 1.8em;
+      height: 2em;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #fff;
+      width: 100%;
+      margin: auto;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    img {
+      margin-top: 20px;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes blink {
+      0% { border-color: #fff; }
+      50% { border-color: transparent; }
+      100% { border-color: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1><span id="greeting"></span> శ్రావణి 🎉</h1>
+    <div class="typewriter" id="typewriter"></div>
+    <p>ఈ ప్రత్యేక రోజున, నీకు నా హృదయపూర్వక పుట్టినరోజు శుభాకాంక్షలు!</p>
+    <p>నీ ప్రేమే నాకు శక్తి, నీ నవ్వే నా లోకం.</p>
+    <p>ఎప్పటికీ ప్రేమతో - శ్రీనివాస్ 💖</p>
+    <img src="https://source.unsplash.com/featured/?love,couple" alt="Romantic">
+  </div>
+
+  <script>
+    // Dynamic Greeting
+    const greetingEl = document.getElementById("greeting");
+    const hour = new Date().getHours();
+    let greeting = "శుభోదయం"; // Default
+    if (hour >= 12 && hour < 17) greeting = "శుభ మధ్యాహ్నం";
+    else if (hour >= 17 && hour < 21) greeting = "శుభ సాయంత్రం";
+    else if (hour >= 21 || hour < 4) greeting = "శుభ రాత్రి";
+    greetingEl.innerText = greeting;
+
+    // Typewriter Text
+    const text = "పుట్టినరోజు శుభాకాంక్షలు నా ప్రేయసికి!";
+    const typeEl = document.getElementById("typewriter");
+    let index = 0;
+    function typeWriter() {
+      if (index < text.length) {
+        typeEl.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100);
+      } else {
+        typeEl.style.borderRight = "none";
+      }
+    }
+    typeWriter();
+
+    // Surprise popup after 7 seconds
+    setTimeout(() => {
+      alert("🎁 సర్ప్రైజ్! ప్రేమతో నిండిన ఈ రోజు నీకోసం మాత్రమే, శ్రావణి ❤️");
+    }, 7000);
+  </script>
+</body>
+</html>
